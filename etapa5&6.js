@@ -1,29 +1,31 @@
-var x = 25;
-var y = 575;
-var r = 625;
-var s = 575;
-var xd = 0;
-var yd = 0;
-var disparo = false;
-var ld = 5;
-var lr = 25;
-var raioE = 25;
-var colisaod = false;
-var colisao = false;
-var cont = 0;
+var x = 25;//x elipse
+var y = 575;//y elipse
+var r = 625;//x do quadrado
+var s = 575;//y do quadrado
+var xd = 0;//x do disparo
+var yd = 0;//y do disparo
+var disparo = false;//Verifica se o disparo esta ativo
+var ld = 5;//Metade do lado do disparo
+var lr = 25;//Metade do lado do quadrado
+var raioE = 25;//Raio da elipse
+var colisaod = false;//Verifica colisao entre disparo e quadrado
+var colisao = false;//Verifica colisao entre elipse e quadrado
+var cont = 0;//Se a colisaod ocorrer sera incrementado para que o quadrado suma
 var vidas = 3;
 var pontos = 0;
-var tela = 0;
-var parede = true;
-var velocidade = 5;
+var tela = 0;//Dependendo do valor mostra tela inicio ou tela jogo
+var parede = true;//Verifica se o quadrado chegou ao fim do canvas, fazendo o jogador perder uma vida
+var velocidade = 5;//Incremento na posicao do jogador quando alguma tecla eh pressionada
 
 function setup() {
     createCanvas(600,600); 
     background(0);  
 }
 
-function draw() {      
+function draw() {  
+//Se as vidas forem maior que zero o jogo comecara, se nao tela game over
    if(vidas>0){
+//tela0: tela de apresentacao do jogo
     if(tela == 0){
         background(0,173,239);
         textSize(50);
@@ -83,7 +85,8 @@ function draw() {
    
     //Terceira etapa - Objeto caminha pela tela até desaparecer e retorna posteriormente.  
         r-=5;
-	 if((r<=0 && r>-5) && cont==0 && parede){
+	//Checa se o quadrado passou da parede e nao atingiu o jogador
+	if((r<=0 && r>-5) && cont==0 && parede){
         vidas--;
         pontos -= 5;
         if(pontos<=0){
@@ -120,8 +123,10 @@ function draw() {
     text("Pontos: "+pontos,450,30);
 
     //Sexta etapa - Colisão
+	//Cheque este site para entender como funciona a funcao dist: https://p5js.org/reference/#/p5/dist
+	//Colisao disparo -> quadrado
 	if(dist(xd,yd,r,s) < ld+lr){
-		if(!colisaod){
+	   if(!colisaod){
             colisaod = true
             disparo = false
             pontos++;
@@ -132,7 +137,7 @@ function draw() {
 	} else{
 		colisaod = false
 	}
-    
+    //Colisao quadrado -> jogador
     if((dist(x,y,r,s) < raioE+lr) && cont == 0 ){
         if(!colisao){
             colisao = true;
@@ -145,6 +150,7 @@ function draw() {
 
    }
  } else{
+//Tela de game over (Vidas = 0)
        noStroke();
        background(0);
        textSize(50);
@@ -155,8 +161,16 @@ function draw() {
        fill(255,255,255);
        text("Press ENTER to play again",135,350)
        if(keyIsDown(ENTER)){
+//Reseta todas as variaveis que influenciam no jogo
            vidas = 3;
            pontos = 0;
+	   disparo = false;
+	   colisao = false;
+	   colisaod = false;
+	   parede = true;
+	   cont = 0;
+	   xd = -50;
+	   yd = -50;
            x = 25;
            y = 575;
            r = 575;
