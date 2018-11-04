@@ -18,10 +18,8 @@ var parede = true;
 var velocidade = 5;
 
 function setup() {
-
     createCanvas(600,600); 
-    background(0);
-    
+    background(0);  
 }
 
 function draw() {      
@@ -83,21 +81,6 @@ function draw() {
   	    }
   }
    
-	//Quarta etapa - Disparo
-	if (keyIsDown(CONTROL) && !disparo){
-		xd = x;
-		yd = y;
-		disparo = true;
-	}
-	if(disparo == true){
-		stroke(255,255,0);
-		rect(xd,yd,2*ld,2*ld);
-		xd+=5
-	if(xd > 600){
-		disparo = false;
- 		}
-	}
-    
     //Terceira etapa - Objeto caminha pela tela até desaparecer e retorna posteriormente.  
         r-=5;
 	 if((r<=0 && r>-5) && cont==0 && parede){
@@ -113,6 +96,22 @@ function draw() {
 		r = random(650, 1500);
 		s = random (25,575);
     }
+	    
+    //Quarta etapa - Disparo
+    if (keyIsDown(CONTROL) && !disparo){
+		xd = x;
+		yd = y;
+		disparo = true;
+	}
+    if(disparo == true){
+		stroke(255,255,0);
+		rect(xd,yd,2*ld,2*ld);
+		xd+=5
+    if(xd > 600){
+		disparo = false;
+ 		}
+	}
+    
     //Quinta etapa - Informacoes na tela
     textSize(30);
     fill(255,255,255);
