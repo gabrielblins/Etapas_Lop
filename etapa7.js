@@ -139,12 +139,10 @@ function draw() {
 	}
 
 	//Setima etapa. 
-	if(tempo == 5){
+	if(t == 300){
 		bonus = true;
 		xb = random(0,600);
 		yb = random(0,600);
-	}else{
-		bonus = false;
 	}
 
 	if(bonus == true){
