@@ -186,22 +186,22 @@ function draw() {
     if(pontos>=0 && pontos<=10){
         nivel = 1;
         qtd = 1;
-        velocniv = 5;
+        velocniv = 4;
     }else if(pontos>10 && pontos<=20){
         nivel = 2;
         qtd = 2;
-        velocniv = 6;
+        velocniv = 5;
     }else if(pontos>20 && pontos<=30){
         nivel = 3;
         qtd = 3;
-        velocniv = 7;
+        velocniv = 6;
     }else if(pontos>30 && pontos<=40){
         nivel = 4;
         qtd = 4;
-        velocniv = 8;
+        velocniv = 7;
     }else if(pontos>40 && pontos<=50){
         nivel = 5;
         qtd = 5;
-        velocniv = 10;
+        velocniv = 8;
     }
 }
