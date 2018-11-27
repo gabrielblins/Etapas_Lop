@@ -20,6 +20,7 @@ var qtd = 5;
 var velocidade = 0;
 var velocniv = 0;
 var fast = 0;
+var tela = 0;
 
 
 function setup() {
@@ -40,6 +41,21 @@ function setup() {
     
 }
 function draw() {
+if(vidas>0){
+//tela0: tela de apresentacao do jogo
+    if(tela == 0){
+        background(0,173,239);
+        textSize(50);
+        textStyle(BOLD);
+        fill(0,255,0);
+        text("Circle Shooter",110,300);
+        textSize(25);
+        fill(255,255,255);
+        text("Press SPACE to play",155,350);
+        if(keyIsDown(32)){
+            tela = 1;
+        }
+    }else{
    velocidade = velocniv+fast;      
    rectMode(CENTER);
    t++
@@ -204,4 +220,33 @@ function draw() {
         qtd = 5;
         velocniv = 8;
     }
+   }
+  }else{
+  //Tela de game over (Vidas = 0)
+       noStroke();
+       background(0);
+       textSize(50);
+       fill(255,0,0);
+       textStyle(BOLD);
+       text("GAME OVER",140,300);
+       textSize(25);
+       fill(255,255,255);
+       text("Press ENTER to play again",135,350)
+       if(keyIsDown(ENTER)){
+//Reseta todas as variaveis que influenciam no jogo
+           vidas = 5;
+           pontos = 0;
+    x = 25;
+    y = random(25,575);
+    for(i=1;i<=qtd;i++){
+        r[i] = random(600,1000);
+        s[i] = random(25,575);
+        colisaod1[i] = false;
+        colisaoj[i] = false;
+        disp1[i] = false;
+        x1[i] = 0;
+        y1[i] = 700;
+    }
+      }
+   }
 }
