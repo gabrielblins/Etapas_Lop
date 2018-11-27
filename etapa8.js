@@ -234,7 +234,12 @@ if(vidas>0){
        text("Press ENTER to play again",135,350)
        if(keyIsDown(ENTER)){
 //Reseta todas as variaveis que influenciam no jogo
-           vidas = 5;
+           clear();
+	   t = 0;
+	   bonus = false;
+	   xb = -50;
+	   yb = -50;
+	   vidas = 5;
            pontos = 0;
     x = 25;
     y = random(25,575);
