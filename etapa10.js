@@ -419,6 +419,7 @@ if(vidas>0){
 	   yb = -50;
 	   vidas = 5;
            pontos = 0;
+	   vidaforca = 5;
     x = 25;
     y = random(25,575);
     for(i=1;i<=qtd;i++){
