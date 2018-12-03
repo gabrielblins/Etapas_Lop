@@ -51,7 +51,7 @@ var conttiro = [];
 var tamtiro = 10;
 var contt = 0;
 var distmax = [];
-var subnome,spaceship,laser;
+var subnome,spaceship,laser,backtheme;
 var time = 0;
 
 function preload(){
@@ -79,6 +79,9 @@ for(i=1;i<=qtd;i++){
 for(i=0;i<=43;i++){
     terra[i] = loadImage("sprites/Earth/"+i+".gif");
 }
+
+soundFormats('mp3', 'ogg');
+backtheme = loadSound("sprites/backtheme.mp3");
 }
 
 function setup() {
@@ -101,6 +104,10 @@ function setup() {
         y1[i] = 700;
     }
     imageMode(CENTER);
+
+backtheme.setVolume(0.1);
+backtheme.play();
+backtheme.loop();
 }
 function draw() {
 if(vidas>0){
@@ -125,6 +132,7 @@ if(vidas>0){
         if(keyIsDown(ENTER)){
             tela = 1;
             tempterra=0;
+	    backtheme.stop();
         }
     }else{
    velocidade = velocniv+fast;      
