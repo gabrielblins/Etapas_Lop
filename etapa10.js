@@ -104,6 +104,7 @@ function setup() {
     }
     imageMode(CENTER);
     backtheme.setVolume(0.1);
+    backtheme.play();
 
 }
 
@@ -111,7 +112,6 @@ function draw() {
 if(vidas>0){
 //tela0: tela de apresentacao do jogo
     if(tela == 0){
-	backtheme.play();
         backtheme.loop();
         tempterra++;
         image(space,683,300,1366,600);
@@ -130,9 +130,10 @@ if(vidas>0){
             contterra=0;
         }
         if(keyIsDown(ENTER)){
-            tela = 1;
+            backtheme.stop();
+	    tela = 1;
             tempterra=0;
-	    backtheme.stop();
+	    
         }
     }else{
    velocidade = velocniv+fast;      
