@@ -80,12 +80,11 @@ for(i=0;i<=43;i++){
     terra[i] = loadImage("sprites/Earth/"+i+".gif");
 }
 
-soundFormats('mp3');
-backtheme = loadSound("sprites/backtheme.mp3");
+soundFormats('mp3', 'ogg');
+backtheme = loadSound("sounds/backtheme.ogg");
 }
 
 function setup() {
-
     createCanvas(1366,600); 
     background(0);
     frameRate(60);
@@ -104,11 +103,11 @@ function setup() {
         y1[i] = 700;
     }
     imageMode(CENTER);
-
-backtheme.setVolume(0.1);
-backtheme.play();
-backtheme.loop();
+    backtheme.setVolume(0.1);
+    backtheme.play();
+    backtheme.loop();
 }
+
 function draw() {
 if(vidas>0){
 //tela0: tela de apresentacao do jogo
