@@ -132,7 +132,7 @@ if(vidas>0){
         if(keyIsDown(ENTER)){
             tela = 1;
             tempterra=0;
-	    backtheme.stop();
+	    backtheme.pause();
         }
     }else{
    velocidade = velocniv+fast;      
