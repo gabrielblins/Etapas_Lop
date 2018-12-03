@@ -80,7 +80,7 @@ for(i=0;i<=43;i++){
     terra[i] = loadImage("sprites/Earth/"+i+".gif");
 }
 
-soundFormats('mp3', 'ogg');
+soundFormats('mp3');
 backtheme = loadSound("sprites/backtheme.mp3");
 }
 
